@@ -74,7 +74,7 @@ mongoose.connect(process.env.MONGO_URL, () => {
   console.log("Connected to MongoDB");
 });
 
-app.get('/api/test', (req, res) => {
+app.get('/test', (req, res) => {
   mongoose.connect(process.env.MONGO_URL);
   res.json('test ok');
 });
@@ -122,7 +122,7 @@ app.post('/login', async (req, res) => {
   }
 });
 
-app.get('/profile', (req, res) => {
+app.get('/account', (req, res) => {
   mongoose.connect(process.env.MONGO_URL);
   const { token } = req.cookies;
   if (token) {
