@@ -8,7 +8,7 @@ client/node_modules/
 .env.local
 .env.production
 api/.env
-client/.env
+
 
 # Builds
 dist/
