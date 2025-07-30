@@ -139,10 +139,12 @@ Displays full details of a selected place.
 ![Place Detail](https://res.cloudinary.com/dblomc9cr/image/upload/v1753864936/Screenshot_2025-07-30_141155_pufwqw.png)
 
 ### 👤 Account Dashboard
+
 User dashboard with links to bookings and add new accommodations.
 ![Account](https://res.cloudinary.com/dblomc9cr/image/upload/v1753865059/Screenshot_2025-07-30_141404_kjy1rl.png)
 
 ### 📆 My Bookings
+
 List of all bookings made by the user.
 ![Bookings](https://res.cloudinary.com/dblomc9cr/image/upload/v1753865305/Screenshot_2025-07-30_141807_a78dvk.png)
 
