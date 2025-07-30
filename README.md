@@ -131,7 +131,7 @@ All backend API endpoints are served from the root (e.g., /account, /places)
 ### 🏠 Homepage
 
 Shows all available listings.
-![Homepage](https://res.cloudinary.com/dblomc9cr/image/upload/v1753864743/Screenshot_2025-07-30_140625_wzkvgf.png)
+![Home page](https://res.cloudinary.com/dblomc9cr/image/upload/v1753864743/Screenshot_2025-07-30_140625_wzkvgf.png)
 
 ### 🏡 Place Detail
 
