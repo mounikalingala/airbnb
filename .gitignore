@@ -18,8 +18,5 @@ build/
 .idea
 .DS_Store
 
-# Uploaded files
-api/uploads/*
-
 # Log files
 *.log
