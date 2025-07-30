@@ -1,4 +1,25 @@
-.idea
-api/node_modules
+# Node
+node_modules/
+api/node_modules/
+client/node_modules/
+
+# Environment files
+.env
+.env.local
+.env.production
 api/.env
+client/.env
+
+# Builds
+dist/
+build/
+
+# IDE/OS
+.idea
+.DS_Store
+
+# Uploaded files
 api/uploads/*
+
+# Log files
+*.log
