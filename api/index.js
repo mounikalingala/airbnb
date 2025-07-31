@@ -61,8 +61,8 @@ async function uploadToS3(path, originalFilename, mimetype) {
 
 function getUserDataFromReq(req) {
   return new Promise((resolve, reject) => {
-    jwt.verify(req.cookies.token, jwtSecret, {}, async (err, userData) => {
-      if (err) throw err;
+    jwt.verify(req.cookies.token, jwtSecret, {}, (err, userData) => {
+      if (err) return reject(err);
       resolve(userData);
     });
   });
@@ -208,7 +208,7 @@ app.post("/places", async (req, res) => {
     });
 
     res.json(placeDoc);
-  } catch {
+  } catch (err) {
     console.error('POST /places error:', err);
     res.status(400).json({ error: 'Place creation failed' });
   }
