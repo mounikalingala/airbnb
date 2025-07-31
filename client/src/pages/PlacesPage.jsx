@@ -11,8 +11,6 @@ export default function PlacesPage() {
       setPlaces(data);
     });
 
-    places.map(place => console.log("Place photos", place?.photos))
-
   }, []);
   return (
     <div>

@@ -167,24 +167,52 @@ app.post('/upload', photosMiddleware.array('photos', 100), (req, res) => {
   res.json(uploadedFiles);
 });
 
-app.post('/places', (req, res) => {
-  mongoose.connect(process.env.MONGO_URL);
-  const { token } = req.cookies;
-  const {
-    title, address, addedPhotos, description, price,
-    perks, extraInfo, checkIn, checkOut, maxGuests,
-  } = req.body;
-  jwt.verify(token, jwtSecret, {}, async (err, userData) => {
-    if (err) throw err;
-    const placeDoc = await Place.create({
-      owner: userData.id, price,
-      title, address, photos: addedPhotos, description,
-      perks, extraInfo, checkIn, checkOut, maxGuests,
-    });
-    res.json(placeDoc);
-  });
-});
+// app.post('/places', (req, res) => {
+//   mongoose.connect(process.env.MONGO_URL);
+//   const { token } = req.cookies;
+//   const {
+//     title, address, addedPhotos, description, price,
+//     perks, extraInfo, checkIn, checkOut, maxGuests,
+//   } = req.body;
+//   jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+//     if (err) throw err;
+//     const placeDoc = await Place.create({
+//       owner: userData.id, price,
+//       title, address, photos: addedPhotos, description,
+//       perks, extraInfo, checkIn, checkOut, maxGuests,
+//     });
+//     res.json(placeDoc);
+//   });
+// });
 
+app.post("/places", async (req, res) => {
+  await mongoose.connect(process.env.MONGO_URL)
+  try {
+    const userData = await getUserDataFromReq(req);
+    const {
+      title, address, addedPhotos, description, price,
+      perks, extraInfo, checkIn, checkOut, maxGuests,
+    } = req.body;
+    const placeDoc = await Place.create({
+      owner: userData.id,
+      title,
+      address,
+      photos: addedPhotos,
+      description,
+      price,
+      perks,
+      extraInfo,
+      checkIn,
+      checkOut,
+      maxGuests,
+    });
+
+    res.json(placeDoc);
+  } catch {
+    console.error('POST /places error:', err);
+    res.status(400).json({ error: 'Place creation failed' });
+  }
+})
 app.get('/user-places', (req, res) => {
   mongoose.connect(process.env.MONGO_URL);
   const { token } = req.cookies;
